@@ -19,8 +19,8 @@ window.WEDDING_CONFIG = {
             fatherName: "Naresh Joshi",
             cityState: "Gogunda, Rajasthan",
             instagram: {
-                handle: "@anushka.royal",
-                url: "https://instagram.com/anushka.royal"
+                handle: "@dimpal.joshi",
+                url: "https://instagram.com/dimpal.joshi"
             }
         },
 
@@ -34,8 +34,8 @@ window.WEDDING_CONFIG = {
             fatherName: "Mithalal",
             cityState: "Chatiyakhedi, Rajasthan",
             instagram: {
-                handle: "@jayvardhan.singh",
-                url: "https://instagram.com/jayvardhan.singh"
+                handle: "@kartik.paliwal",
+                url: "https://instagram.com/kartik.paliwal"
             }
         },
 
@@ -92,7 +92,7 @@ window.WEDDING_CONFIG = {
     // ─── 5. SCRATCH CARD (SAVE OUR DATE) ─────────────────────────────────────
     scratchCard: {
         badge: "✦ Save Our Date ✦",
-        venueSummary: "Hotel Regal & Resort · Faizabad Road, Lucknow",
+        venueSummary: "Gogunda · Udaipur, Rajasthan",
         blessing: "शुभ विवाह ✦ मंगलम्",
 
         // Text embossed directly onto the scratchable golden/platinum foil
@@ -207,12 +207,12 @@ window.WEDDING_CONFIG = {
             {
                 src: "images/couple/couple.jpg",
                 alt: "Bride and groom",
-                caption: "Anushka & Jayvardhan · Together Forever"
+                caption: "Dimpal & Kartik · Together Forever"
             },
             {
                 src: "images/couple/hero-portrait.jpg",
                 alt: "Royal Heritage Moments",
-                caption: "Royal Heritage Moments · Anushka & Jayvardhan"
+                caption: "Royal Heritage Moments · Dimpal & Kartik"
             },
             {
                 src: "images/couple/invite-cover.jpg",
