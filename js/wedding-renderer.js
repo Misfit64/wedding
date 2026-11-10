@@ -135,7 +135,7 @@
                 setAttr('#story-portrait-img', 'src', cfg.story.portraitPhoto);
             }
             if (cfg.couple && cfg.couple.bride && cfg.couple.groom) {
-                setHtml('#story-couple-names', `${cfg.couple.bride.name}<span class="mx-2 font-display italic text-gold" style="font-size:0.8em">&amp;</span>${cfg.couple.groom.name}`);
+                setHtml('#story-couple-names', `${cfg.couple.bride.name}<span class="mx-2 ampersand text-gold" style="font-size:0.85em">&amp;</span>${cfg.couple.groom.name}`);
             }
 
             // Dynamically Render Story Timeline Milestones
@@ -203,7 +203,7 @@
 
         // 14. Footer
         if (cfg.couple && cfg.couple.bride && cfg.couple.groom) {
-            setHtml('#footer-couple-names', `${cfg.couple.bride.name}<span class="mx-3 font-display italic" style="font-size:0.55em;color:var(--color-gold)">&amp;</span>${cfg.couple.groom.name}`);
+            setHtml('#footer-couple-names', `${cfg.couple.bride.name}<span class="mx-3 ampersand text-gold" style="font-size:0.75em">&amp;</span>${cfg.couple.groom.name}`);
         }
         if (cfg.invocations) {
             setText('#footer-blessing-quote', cfg.invocations.closingBlessing);
@@ -211,11 +211,15 @@
         }
         if (cfg.couple && cfg.couple.groom && cfg.couple.groom.instagram) {
             setAttr('#footer-groom-insta', 'href', cfg.couple.groom.instagram.url);
-            setText('#footer-groom-insta-handle', cfg.couple.groom.instagram.handle);
+            const gHandle = cfg.couple.groom.instagram.handle || '';
+            const gClean = gHandle.startsWith('@') ? gHandle.slice(1) : gHandle;
+            setHtml('#footer-groom-insta-handle', `<span class="insta-at">@</span><span class="insta-name">${gClean}</span>`);
         }
         if (cfg.couple && cfg.couple.bride && cfg.couple.bride.instagram) {
             setAttr('#footer-bride-insta', 'href', cfg.couple.bride.instagram.url);
-            setText('#footer-bride-insta-handle', cfg.couple.bride.instagram.handle);
+            const bHandle = cfg.couple.bride.instagram.handle || '';
+            const bClean = bHandle.startsWith('@') ? bHandle.slice(1) : bHandle;
+            setHtml('#footer-bride-insta-handle', `<span class="insta-at">@</span><span class="insta-name">${bClean}</span>`);
         }
         if (cfg.couple && cfg.weddingDate) {
             setText('#footer-hashtag-date', `${cfg.couple.weddingHashtag} · ${cfg.weddingDate.displayDate}`);
@@ -229,19 +233,24 @@
         const container = document.getElementById('story-timeline-container');
         if (!container) return;
 
+        const romanNumerals = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'];
+
         let html = '';
         timeline.forEach((item, index) => {
             const isLast = index === timeline.length - 1;
+            const numeral = romanNumerals[index] || (index + 1);
             html += `
-                <div class="relative flex gap-6">
+                <div class="relative flex gap-5 sm:gap-7">
                     <div class="flex flex-col items-center">
-                        <div class="mt-1 h-2.5 w-2.5 shrink-0 rounded-full border border-gold bg-dark" style="box-shadow:0 0 8px var(--color-gold-bracket)"></div>
-                        ${!isLast ? '<div class="mt-2 w-px flex-1" style="background:linear-gradient(to bottom, var(--color-gold-glow-35), var(--color-gold-glow-06));min-height:100px"></div>' : ''}
+                        <div class="relative flex items-center justify-center mt-1 h-7 w-7 rounded-full border border-gold bg-dark" style="box-shadow:0 0 14px var(--color-gold-glow-40)">
+                            <span class="font-cinzel text-[10px] text-gold font-semibold">${numeral}</span>
+                        </div>
+                        ${!isLast ? '<div class="mt-2 w-px flex-1" style="background:linear-gradient(to bottom, var(--color-gold-glow-38), var(--color-gold-glow-06));min-height:90px"></div>' : ''}
                     </div>
-                    <div class="pb-16 sm:pb-20">
-                        <span class="mb-2 block font-cinzel tracking-[0.35em] text-gold" style="font-size:0.72rem;opacity:0.75"></span>
-                        <h4 class="mb-3 font-display" style="font-size:clamp(1.3rem, 3.5vw, 1.75rem);letter-spacing:-0.02em;color:var(--color-name-text)">${item.title}</h4>
-                        <p class="font-body font-light leading-relaxed tracking-wider text-muted" style="font-size:clamp(0.88rem, 2vw, 1rem)">${item.description}</p>
+                    <div class="pb-12 sm:pb-16 pt-0.5">
+                        <span class="mb-1 block font-cinzel uppercase tracking-[0.28em] text-gold-accent text-xs opacity-85">Chapter ${numeral}</span>
+                        <h4 class="mb-2 font-display text-gold-heading text-xl sm:text-2xl font-light leading-snug">${item.title}</h4>
+                        <p class="font-body font-normal text-cream/90 leading-relaxed tracking-normal" style="font-size:clamp(0.92rem, 1.8vw, 1.02rem)">${item.description}</p>
                     </div>
                 </div>
             `;
@@ -259,57 +268,52 @@
 
         let html = '';
         events.forEach((ev, idx) => {
-            const isRTL = idx % 2 === 1;
-            const directionClass = isRTL ? 'direction:rtl' : 'direction:ltr';
+            const isReverse = idx % 2 === 1;
+            const reverseClass = isReverse ? 'ceremony-reverse' : '';
             const iconSvg = ICONS[ev.icon] || ICONS.lotus;
 
             html += `
-            <div class="relative flex flex-col overflow-hidden lg:flex-row" style="border:1px solid var(--color-gold-border-sm);${directionClass}">
-                <!-- Event Image Box -->
-                <div class="relative h-56 w-full overflow-hidden lg:h-auto lg:w-[42%]" style="direction:ltr">
-                    <div class="absolute inset-0 h-full w-full">
-                        <img alt="${ev.name}" loading="lazy" decoding="async" class="object-cover object-center w-full h-full" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;" src="${ev.image || 'images/venues/tilak.png'}"/>
-                    </div>
-                    <div class="absolute inset-0" style="background:linear-gradient(${isRTL ? 'to left' : 'to right'}, var(--color-surface-2xs) 50%, var(--color-surface-lg) 100%)"></div>
-                    <div class="absolute inset-0 lg:hidden" style="background:var(--color-surface-md)"></div>
+            <div class="ceremony-card group ${reverseClass}">
+                <!-- Event Image Box (Strictly contained within card, fixed 300px desktop width) -->
+                <div class="ceremony-img-box">
+                    <img alt="${ev.name}" loading="lazy" decoding="async" class="ceremony-img" src="${ev.image || 'images/venues/tilak.png'}"/>
+                    <div class="ceremony-img-overlay ${isReverse ? 'overlay-reverse' : ''}"></div>
                 </div>
 
-                <!-- Event Details Box -->
-                <div class="relative flex flex-1 flex-col justify-center px-8 py-9 sm:px-10 lg:py-10" style="background:var(--color-surface-content);backdrop-filter:blur(8px);direction:ltr">
-                    <div class="mb-4 flex items-center justify-between">
-                        <div class="flex items-center gap-3">
-                            <span class="inline-block" style="width:18px;height:2px;background:var(--color-gold-line);display:block"></span>
-                            <span class="font-cinzel uppercase tracking-[0.42em] text-gold" style="font-size:0.9rem;opacity:0.9">${ev.dayDate}</span>
+                <!-- Event Details Box (Generous padding, luxurious hierarchy) -->
+                <div class="ceremony-details-box">
+                    <div class="mb-3.5 flex flex-wrap items-center justify-between gap-3">
+                        <div class="flex items-center gap-2.5">
+                            <span class="inline-block" style="width:16px;height:1.5px;background:var(--color-gold-line);display:block"></span>
+                            <span class="font-cinzel uppercase tracking-[0.16em] sm:tracking-[0.22em] text-gold font-medium text-xs sm:text-sm">${ev.dayDate}</span>
                         </div>
-                        <span class="text-gold opacity-80" style="filter:drop-shadow(0 0 6px var(--color-gold-glow-40))">
+                        <span class="text-gold-accent opacity-90 transition-transform duration-300 group-hover:scale-110" style="filter:drop-shadow(0 0 8px var(--color-gold-glow-40))">
                             ${iconSvg}
                         </span>
                     </div>
 
-                    <h3 class="mb-4 font-display" style="font-size:clamp(2rem, 4.5vw, 2.8rem);line-height:0.93;letter-spacing:-0.03em;color:var(--color-name-text)">${ev.name}</h3>
+                    <h3 class="mb-3 font-display text-gold-heading text-2xl sm:text-3xl md:text-4xl font-light leading-tight tracking-tight">${ev.name}</h3>
 
-                    <div class="flex flex-col gap-4">
+                    <div class="flex flex-col gap-3.5">
                         <div>
-                            ${ev.subtitle1 ? `<p class="mb-0.5 font-cinzel uppercase tracking-[0.25em] text-gold" style="font-size:0.85rem;opacity:0.8">${ev.subtitle1}</p>` : ''}
-                            <p class="font-display tracking-wide" style="font-size:clamp(1.2rem, 2.2vw, 1.5rem);color:var(--color-name-text)">${ev.time}</p>
+                            ${ev.subtitle1 ? `<p class="mb-1 font-cinzel uppercase tracking-[0.18em] text-gold-accent text-xs sm:text-sm font-medium opacity-90">${ev.subtitle1}</p>` : ''}
+                            <p class="font-display tracking-wide text-cream text-base sm:text-lg font-medium">${ev.time}</p>
                         </div>
 
                         ${(ev.subtitle2 || ev.venueName || ev.address || ev.dressCode || ev.mapUrl) ? `
-                        <div class="h-px w-12" style="background:var(--color-gold-glow-35)"></div>
+                        <div class="h-px w-14 my-1" style="background:var(--color-gold-glow-35)"></div>
                         <div>
-                            ${ev.subtitle2 ? `<p class="mb-0.5 font-cinzel uppercase tracking-[0.35em] text-gold" style="font-size:0.85rem;opacity:0.8">${ev.subtitle2}</p>` : ''}
-                            ${ev.venueName ? `<p class="font-display" style="font-size:clamp(1.3rem, 2.8vw, 1.6rem);line-height:1.25;color:var(--color-name-text)">${ev.venueName}</p>` : ''}
-                            ${ev.address ? `<p class="mt-2 font-body font-light text-muted" style="font-size:clamp(1rem, 1.9vw, 1.1rem);line-height:1.6;opacity:0.95">${ev.address}</p>` : ''}
+                            ${ev.subtitle2 ? `<p class="mb-1 font-cinzel uppercase tracking-[0.22em] text-gold text-xs opacity-85">${ev.subtitle2}</p>` : ''}
+                            ${ev.venueName ? `<p class="font-display text-cream font-medium text-base sm:text-lg leading-snug">${ev.venueName}</p>` : ''}
+                            ${ev.address ? `<p class="mt-1 font-body font-normal text-muted text-xs sm:text-sm leading-relaxed opacity-95">${ev.address}</p>` : ''}
 
                             ${ev.dressCode ? `
-                            <div class="mt-4 flex items-center gap-2">
-                                <span class="font-cinzel uppercase tracking-[0.25em] text-gold" style="font-size:0.7rem;opacity:0.75">Dress Code</span>
-                                <span class="h-px w-4" style="background:var(--color-gold-glow-35)"></span>
-                                <span class="font-display" style="font-size:0.95rem;color:var(--color-name-text)">${ev.dressCode}</span>
+                            <div class="mt-3.5 flex items-center gap-2">
+                                <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-cinzel tracking-wider font-medium" style="background:rgba(229,195,120,0.12);border:1px solid rgba(229,195,120,0.32);color:var(--color-gold-light)">✦ Dress Code: ${ev.dressCode}</span>
                             </div>` : ''}
 
                             ${ev.mapUrl ? `
-                            <a target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center gap-2 rounded-sm border px-3 py-2 font-cinzel uppercase tracking-[0.15em] text-gold transition-opacity hover:opacity-70" style="font-size:0.8rem;opacity:0.95;border-color:var(--color-gold-glow-35)" href="${ev.mapUrl}">
+                            <a target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center gap-2 rounded-sm border px-4 py-2 font-cinzel uppercase tracking-[0.18em] text-gold text-xs font-medium transition-all hover:bg-gold/15 hover:border-gold hover:text-gold-light" style="border-color:var(--color-gold-glow-35)" href="${ev.mapUrl}">
                                 ${ICONS.mapPin}
                                 View on Map
                             </a>` : ''}
@@ -335,15 +339,11 @@
         let html = '';
         images.forEach((img, idx) => {
             html += `
-            <div class="mb-3 break-inside-avoid sm:mb-4">
-                <div data-gallery-item="${idx}" class="gallery-card group relative cursor-pointer overflow-hidden" style="aspect-ratio:2/3;border:1px solid var(--color-gold-glow-10);">
-                    <div class="absolute inset-0 h-full w-full">
-                        <img alt="${img.alt || 'Gallery image'}" loading="lazy" decoding="async" class="object-cover object-center w-full h-full" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;" src="${img.src}"/>
-                    </div>
-                    <div class="absolute inset-0" style="background:linear-gradient(to top, var(--color-surface-lg) 0%, var(--color-surface-2xs) 60%)"></div>
-                    <div class="absolute bottom-4 left-0 right-0 flex justify-center">
-                        <span class="font-cinzel uppercase tracking-[0.4em] text-gold-light" style="font-size:0.6rem">View</span>
-                    </div>
+            <div data-gallery-item="${idx}" class="gallery-card group">
+                <img alt="${img.alt || img.caption || 'Gallery image'}" loading="lazy" decoding="async" src="${img.src}"/>
+                <div class="gallery-overlay"></div>
+                <div class="gallery-btn-wrapper">
+                    <span class="font-cinzel uppercase tracking-[0.22em] text-gold-light text-[11px] sm:text-xs px-3 sm:px-4 py-1.5 rounded-sm border" style="background:rgba(10,9,14,0.92);border-color:var(--color-gold-border-sm);backdrop-filter:blur(8px);">View Photo</span>
                 </div>
             </div>`;
         });
