@@ -186,6 +186,8 @@
         if (cfg.venue) {
             setText('#venue-section-subtitle', cfg.venue.subtitle);
             setText('#venue-section-title', cfg.venue.title);
+            setText('#venue-name', cfg.venue.name);
+            setText('#venue-address', cfg.venue.address);
             if (cfg.venue.directionsUrl) {
                 setAttr('#venue-directions-link', 'href', cfg.venue.directionsUrl);
             }
@@ -282,7 +284,7 @@
 
                 <!-- Event Details Box (Generous padding, luxurious hierarchy) -->
                 <div class="ceremony-details-box">
-                    <div class="mb-3.5 flex flex-wrap items-center justify-between gap-3">
+                    <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
                         <div class="flex items-center gap-2.5">
                             <span class="inline-block" style="width:16px;height:1.5px;background:var(--color-gold-line);display:block"></span>
                             <span class="font-cinzel uppercase tracking-[0.16em] sm:tracking-[0.22em] text-gold font-medium text-xs sm:text-sm">${ev.dayDate}</span>
@@ -292,31 +294,33 @@
                         </span>
                     </div>
 
-                    <h3 class="mb-3 font-display text-gold-heading text-2xl sm:text-3xl md:text-4xl font-light leading-tight tracking-tight">${ev.name}</h3>
+                    <h3 class="mb-3.5 font-display text-gold-heading text-2xl sm:text-3xl md:text-4xl font-light leading-tight tracking-tight">${ev.name}</h3>
 
-                    <div class="flex flex-col gap-3.5">
+                    <div class="flex flex-col gap-4">
                         <div>
                             ${ev.subtitle1 ? `<p class="mb-1 font-cinzel uppercase tracking-[0.18em] text-gold-accent text-xs sm:text-sm font-medium opacity-90">${ev.subtitle1}</p>` : ''}
-                            <p class="font-display tracking-wide text-cream text-base sm:text-lg font-medium">${ev.time}</p>
+                            <p class="font-display tracking-wide text-cream text-base sm:text-lg font-medium leading-relaxed">${ev.time}</p>
                         </div>
 
                         ${(ev.subtitle2 || ev.venueName || ev.address || ev.dressCode || ev.mapUrl) ? `
-                        <div class="h-px w-14 my-1" style="background:var(--color-gold-glow-35)"></div>
-                        <div>
-                            ${ev.subtitle2 ? `<p class="mb-1 font-cinzel uppercase tracking-[0.22em] text-gold text-xs opacity-85">${ev.subtitle2}</p>` : ''}
+                        <div class="h-px w-14 my-1.5" style="background:var(--color-gold-glow-35)"></div>
+                        <div class="space-y-2.5">
+                            ${ev.subtitle2 ? `<p class="font-cinzel uppercase tracking-[0.22em] text-gold text-xs opacity-85">${ev.subtitle2}</p>` : ''}
                             ${ev.venueName ? `<p class="font-display text-cream font-medium text-base sm:text-lg leading-snug">${ev.venueName}</p>` : ''}
-                            ${ev.address ? `<p class="mt-1 font-body font-normal text-muted text-xs sm:text-sm leading-relaxed opacity-95">${ev.address}</p>` : ''}
+                            ${ev.address ? `<p class="font-body font-normal text-muted text-xs sm:text-sm leading-relaxed opacity-95">${ev.address}</p>` : ''}
 
                             ${ev.dressCode ? `
-                            <div class="mt-3.5 flex items-center gap-2">
-                                <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-cinzel tracking-wider font-medium" style="background:rgba(229,195,120,0.12);border:1px solid rgba(229,195,120,0.32);color:var(--color-gold-light)">✦ Dress Code: ${ev.dressCode}</span>
+                            <div class="pt-2 flex items-center gap-2">
+                                <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-cinzel tracking-wider font-medium max-w-full text-wrap" style="background:rgba(229,195,120,0.12);border:1px solid rgba(229,195,120,0.32);color:var(--color-gold-light)">✦ Dress Code: ${ev.dressCode}</span>
                             </div>` : ''}
 
                             ${ev.mapUrl ? `
-                            <a target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center gap-2 rounded-sm border px-4 py-2 font-cinzel uppercase tracking-[0.18em] text-gold text-xs font-medium transition-all hover:bg-gold/15 hover:border-gold hover:text-gold-light" style="border-color:var(--color-gold-glow-35)" href="${ev.mapUrl}">
-                                ${ICONS.mapPin}
-                                View on Map
-                            </a>` : ''}
+                            <div class="pt-2.5">
+                                <a target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-sm border px-4 py-2 font-cinzel uppercase tracking-[0.18em] text-gold text-xs font-medium transition-all hover:bg-gold/15 hover:border-gold hover:text-gold-light" style="border-color:var(--color-gold-glow-35)" href="${ev.mapUrl}">
+                                    ${ICONS.mapPin}
+                                    View on Map
+                                </a>
+                            </div>` : ''}
                         </div>` : ''}
                     </div>
                 </div>
@@ -349,15 +353,6 @@
         });
 
         container.innerHTML = html;
-
-        // Re-attach lightbox triggers for dynamically generated cards
-        container.querySelectorAll('.gallery-card').forEach((card, idx) => {
-            card.addEventListener('click', () => {
-                if (typeof window.openLightbox === 'function') {
-                    window.openLightbox(idx);
-                }
-            });
-        });
     }
 
     // Initialize as soon as DOM is ready

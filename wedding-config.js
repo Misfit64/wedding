@@ -42,13 +42,14 @@ window.WEDDING_CONFIG = {
         // Combined couple names & hashtag
         combinedNames: "Dimpal & Kartik",
         weddingHashtag: "#DimpalWedsKartik",
-        pageTitle: "Dimpal & Kartik — Wedding Invitation"
+        pageTitle: "Dimpal & Kartik — Luxury Wedding Invitation"
     },
 
     // ─── 2. MAIN WEDDING DATE & COUNTDOWN TIMER ──────────────────────────────
     weddingDate: {
         // Formatted date displayed across the website
         displayDate: "11 December 2026",
+        displayDay: "Friday",
         displayYear: "2026",
 
         // Exact timestamp for real-time countdown calculation
@@ -95,7 +96,7 @@ window.WEDDING_CONFIG = {
         venueSummary: "Gogunda · Udaipur, Rajasthan",
         blessing: "शुभ विवाह ✦ मंगलम्",
 
-        // Text embossed directly onto the scratchable golden/platinum foil
+        // Text embossed directly onto the scratchable golden foil
         foilTopPrompt: "✦  ROYAL WEDDING INVITATION  ✦",
         foilCenterTitle: "SCRATCH TO REVEAL",
         foilBottomPrompt: "✦  SWIPE TO UNLOCK SAVE THE DATE  ✦"
@@ -133,64 +134,69 @@ window.WEDDING_CONFIG = {
     // Edit, reorder, add, or remove events as needed.
     events: [
         {
-            name: "Tilak",
-            dayDate: "Saturday · 21 November 2026",
-            time: "7:00 PM Onwards",
+            name: "Tilak & Sagai",
+            dayDate: "Sunday · 6 December 2026",
+            time: "6:30 PM Onwards",
             subtitle1: "A Beautiful Beginning Of Love & Blessings",
-            subtitle2: "A Traditional Welcome Before The Wedding",
-            venueName: "Mukhiya Sadan",
-            address: "Kushmaur , Basti",
-            dressCode: "",
-            mapUrl: "https://maps.app.goo.gl/dU11yuT274NjQVgG7",
-            image: "images/venues/tilak.png"
+            subtitle2: "A Traditional Auspicious Welcome & Sagan",
+            venueName: "Shubh Shanti Parisar",
+            address: "Gogunda, Udaipur, Rajasthan",
+            dressCode: "Royal Ethnic / Traditional Kurta",
+            mapUrl: "https://maps.google.com/?q=Gogunda+Udaipur+Rajasthan",
+            image: "images/venues/tilak.png",
+            icon: "lotus"
         },
         {
             name: "Mehndi",
-            dayDate: "Monday · 23 November 2026",
-            time: "6:00 PM Onwards",
+            dayDate: "Wednesday · 9 December 2026",
+            time: "4:00 PM Onwards",
             subtitle1: "Where Henna Tells Our Story",
-            subtitle2: "An Evening Of Laughter & Love",
-            venueName: "",
-            address: "",
-            dressCode: "Green 💚",
-            mapUrl: "",
-            image: "images/venues/mehndi.png"
+            subtitle2: "An Afternoon Of Laughter, Folk Beats & Henna",
+            venueName: "The Royal Courtyard",
+            address: "Gogunda Palace Grounds, Udaipur, Rajasthan",
+            dressCode: "Festive Green 💚",
+            mapUrl: "https://maps.google.com/?q=Gogunda+Udaipur+Rajasthan",
+            image: "images/venues/mehndi.png",
+            icon: "shehnai"
         },
         {
             name: "Haldi",
-            dayDate: "Tuesday · 24 November 2026",
-            time: "12:00 PM Onwards",
-            subtitle1: "A Sacred Blessing Of Turmeric, Love & New Beginnings",
-            subtitle2: "In The Open Courtyard",
-            venueName: "",
-            address: "",
-            dressCode: "Yellow 💛",
-            mapUrl: "",
-            image: "images/venues/haldi.png"
+            dayDate: "Thursday · 10 December 2026",
+            time: "11:00 AM Onwards",
+            subtitle1: "A Sacred Blessing Of Turmeric, Love & Radiant Beginnings",
+            subtitle2: "Sunlit Courtyard Celebrations",
+            venueName: "Poolside Lawns",
+            address: "Heritage Resort, Gogunda, Udaipur, Rajasthan",
+            dressCode: "Sunshine Yellow 💛",
+            mapUrl: "https://maps.google.com/?q=Gogunda+Udaipur+Rajasthan",
+            image: "images/venues/haldi.png",
+            icon: "haldi"
         },
         {
-            name: "Sangeet",
-            dayDate: "Tuesday · 24 November 2026",
-            time: "6:00 PM Onwards",
-            subtitle1: "Two Families, One Dance Floor — An Evening Of Pure Joy",
-            subtitle2: "At The Chosen Grounds",
-            venueName: "",
-            address: "",
-            dressCode: "",
-            mapUrl: "",
-            image: "images/venues/sangeet.png"
-        },
-        {
-            name: "Wedding",
-            dayDate: "Wednesday · 25 November 2026",
+            name: "Sangeet Sandhya",
+            dayDate: "Thursday · 10 December 2026",
             time: "7:00 PM Onwards",
+            subtitle1: "Two Families, One Dance Floor — An Evening Of Pure Joy",
+            subtitle2: "A Night Of Music, Dance & Royal Revelry",
+            venueName: "Grand Ball Pavilion",
+            address: "Heritage Resort, Gogunda, Udaipur, Rajasthan",
+            dressCode: "Indo-Western Glitz & Glamour ✨",
+            mapUrl: "https://maps.google.com/?q=Gogunda+Udaipur+Rajasthan",
+            image: "images/venues/sangeet.png",
+            icon: "sangeet"
+        },
+        {
+            name: "The Sacred Wedding",
+            dayDate: "Friday · 11 December 2026",
+            time: "7:00 PM Onwards (Baraat 6:00 PM · Pheras 9:00 PM)",
             subtitle1: "Where Two Hearts Become One",
-            subtitle2: "Where Forever Begins",
-            venueName: "Hotel Regal & Resort",
-            address: "Faizabad Road, Inside Shalimar Paradise Township, Lucknow",
-            dressCode: "",
-            mapUrl: "https://maps.google.com/?q=Hotel+Regal+Resort+Faizabad+Road+Lucknow",
-            image: "images/venues/wedding.png"
+            subtitle2: "The Auspicious Seven Vows Under The Starlit Mandap",
+            venueName: "Heritage Palace & Resort",
+            address: "Gogunda, Udaipur, Rajasthan",
+            dressCode: "Royal Traditional Regalia",
+            mapUrl: "https://maps.google.com/?q=Gogunda+Udaipur+Rajasthan",
+            image: "images/venues/wedding.png",
+            icon: "wedding"
         }
     ],
 
@@ -206,7 +212,7 @@ window.WEDDING_CONFIG = {
             },
             {
                 src: "images/couple/couple.jpg",
-                alt: "Bride and groom",
+                alt: "Dimpal & Kartik · Together Forever",
                 caption: "Dimpal & Kartik · Together Forever"
             },
             {
@@ -226,18 +232,18 @@ window.WEDDING_CONFIG = {
     venue: {
         subtitle: "Find Your Way To Us",
         title: "The Venue",
-        name: "Hotel Regal & Resort",
-        address: "Faizabad Road, Inside Shalimar Paradise Township, Lucknow",
-        directionsUrl: "https://maps.google.com/?q=Hotel+Regal+Resort+Faizabad+Road+Lucknow",
-        // Google Maps iframe embed URL
-        mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.5!2d81.05!3d26.88!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sHotel%20Regal%20%26%20Resort!5e0!3m2!1sen!2sin!4v1234567890"
+        name: "Heritage Palace & Resort",
+        address: "Gogunda · Udaipur, Rajasthan",
+        directionsUrl: "https://maps.google.com/?q=Gogunda+Udaipur+Rajasthan",
+        // Clean Google Maps iframe embed URL for Gogunda, Udaipur, Rajasthan
+        mapEmbedUrl: "https://maps.google.com/maps?q=Gogunda%2C%20Udaipur%2C%20Rajasthan&t=&z=13&ie=UTF8&iwloc=&output=embed"
     },
 
     // ─── 10. RSVP / JOIN US INVITATION ───────────────────────────────────────
     rsvp: {
         blessingNote: "With the blessings of our families, we invite you to celebrate with us.",
         heading: "Please Join Us",
-        message: "Your presence will make our day even more special. We can’t wait to celebrate with you. ❤️"
+        message: "Your gracious presence and blessings will make our day truly unforgettable. We eagerly look forward to celebrating with you! ❤️"
     },
 
     // ─── 11. AUDIO & MUSIC ───────────────────────────────────────────────────
