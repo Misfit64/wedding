@@ -116,18 +116,6 @@
     :root { --cols: 3; }
 }
 
-/* Audio pulsing glow animation */
-.playing-pulse {
-    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
-    animation: pulseRing 2s infinite cubic-bezier(0.66, 0, 0, 1);
-}
-
-@keyframes pulseRing {
-    0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6); }
-    70% { box-shadow: 0 0 0 16px rgba(212, 175, 55, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
-}
-
 /* Scroll reveal helper */
 .scroll-reveal {
     opacity: 0;
@@ -138,17 +126,6 @@
 .scroll-reveal.is-visible {
     opacity: 1 !important;
     transform: translateY(0) !important;
-}
-
-/* System cursor fallback - only hide default cursor when fine-pointer custom cursor is actively engaged */
-html, body {
-    cursor: auto !important;
-}
-body.custom-cursor-active,
-body.custom-cursor-active a,
-body.custom-cursor-active button,
-body.custom-cursor-active [tabindex="0"] {
-    cursor: none !important;
 }
 
 /* Calendar & Action Buttons */
@@ -208,69 +185,6 @@ html, body {
 }
 
 
-/* Royal Invitation Card Framing (Refined Floating Keepsake for All Screen Sizes) */
-#cover-card {
-    width: 100% !important;
-    max-width: min(420px, 92vw) !important;
-    height: min(88vh, 660px) !important;
-    max-height: 88vh !important;
-    margin: auto !important;
-    border: 1px solid var(--color-gold-border) !important;
-    outline: 1px solid var(--color-gold-border-xs) !important;
-    outline-offset: 4px !important;
-    border-radius: 4px !important;
-    box-shadow: 0 25px 65px rgba(0, 0, 0, 0.95), 0 0 40px var(--color-gold-glow-08) !important;
-}
-
-/* Luxury Royal Envelope Cover */
-#cover-overlay {
-    position: fixed !important;
-    inset: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    z-index: 99990 !important;
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-    will-change: transform, opacity, filter;
-    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1), filter 1s ease-out;
-}
-
-#cover-overlay.opening {
-    opacity: 0 !important;
-    transform: scale(1.06) !important;
-    filter: blur(8px) !important;
-    pointer-events: none !important;
-}
-
-/* Royal Wax Seal Open Button */
-@keyframes seal-glow {
-    0%, 100% {
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7), 0 0 16px var(--color-gold-glow-25), inset 0 0 12px var(--color-gold-glow-10);
-        transform: scale(1);
-    }
-    50% {
-        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.8), 0 0 32px var(--color-gold-glow-65), inset 0 0 18px rgba(255, 255, 255, 0.3);
-        transform: scale(1.02);
-    }
-}
-
-.wax-seal-btn {
-    animation: seal-glow 2.8s infinite ease-in-out;
-    cursor: pointer !important;
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    border: 1px solid var(--color-gold-border-md) !important;
-    background: linear-gradient(135deg, rgba(32, 20, 36, 0.95), rgba(16, 10, 18, 0.98)) !important;
-    backdrop-filter: blur(14px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7), 0 0 16px var(--color-gold-glow-25), inset 0 0 12px var(--color-gold-glow-10);
-}
-.wax-seal-btn:hover {
-    transform: scale(1.04) !important;
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.85), 0 0 36px var(--color-gold-glow-65), inset 0 0 24px rgba(255, 255, 255, 0.35) !important;
-    border-color: var(--color-gold-light) !important;
-}
-.wax-seal-btn:active {
-    transform: scale(0.97) !important;
-}
 
 /* 24K Royal Gold & Champagne Metallic Foil Titles */
 .gold-foil-text {
@@ -309,31 +223,6 @@ h1, h2, h3, h4 {
     text-wrap: balance;
 }
 
-/* Royal Ornamental Divider */
-.royal-divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    margin: 1.25rem 0;
-    width: 100%;
-}
-.royal-divider::before,
-.royal-divider::after {
-    content: '';
-    height: 1px;
-    width: clamp(40px, 12vw, 90px);
-    background: linear-gradient(90deg, transparent, var(--color-gold-line));
-}
-.royal-divider::after {
-    background: linear-gradient(90deg, var(--color-gold-line), transparent);
-}
-.royal-divider .motif {
-    color: var(--color-gold);
-    font-size: 0.95rem;
-    line-height: 1;
-    filter: drop-shadow(0 0 6px var(--color-gold-glow-40));
-}
 
 /* Main Content Smooth Unveil */
 #main-content {
@@ -377,74 +266,12 @@ h1, h2, h3, h4 {
     filter: drop-shadow(0 2px 8px rgba(229, 195, 120, 0.35)) !important;
 }
 
-/* ✦ Redesigned Scratch Foil Card ✦ */
-#scratch-card-container {
-    border: 1px solid var(--color-gold-border);
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.7), 0 0 30px var(--color-gold-glow-06);
-    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-    min-height: 290px !important;
-    max-height: 360px !important;
-}
-#scratch-card-container.celebration-active {
-    border-color: var(--color-gold-accent) !important;
-    box-shadow: 0 0 55px rgba(229, 195, 120, 0.65), 0 20px 50px rgba(0, 0, 0, 0.85), inset 0 0 35px var(--color-gold-glow-20) !important;
-    animation: celebratoryPulse 2.4s infinite alternate ease-in-out;
-}
-@keyframes celebratoryPulse {
-    0% {
-        transform: scale(1);
-        box-shadow: 0 0 40px rgba(229, 195, 120, 0.45), inset 0 0 25px var(--color-gold-glow-16);
-    }
-    100% {
-        transform: scale(1.015);
-        box-shadow: 0 0 70px rgba(251, 244, 226, 0.75), inset 0 0 45px var(--color-gold-glow-35);
-    }
-}
-
-
-#confetti-canvas {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    pointer-events: none !important;
-    z-index: 999999 !important;
-    display: block !important;
-}
-
-
 /* ==========================================================================
    DESKTOP PHOTO CONTAINMENT & ROYAL CARD ARCHITECTURE
    Guarantees all photos are strictly contained within their boundaries
    ========================================================================== */
 
-/* 1. Cover Keepsake Card (#cover-card) */
-#cover-card {
-    position: relative !important;
-    width: 100% !important;
-    max-width: min(420px, 92vw) !important;
-    height: min(88vh, 660px) !important;
-    max-height: 88vh !important;
-    margin: auto !important;
-    overflow: hidden !important;
-    border: 1px solid var(--color-gold-border) !important;
-    outline: 1px solid var(--color-gold-border-xs) !important;
-    outline-offset: 4px !important;
-    border-radius: 4px !important;
-    box-shadow: 0 25px 65px rgba(0, 0, 0, 0.95), 0 0 40px var(--color-gold-glow-08) !important;
-}
-
-#cover-card img[data-nimg="fill"] {
-    position: absolute !important;
-    inset: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: center !important;
-}
-
-/* 2. Our Story Portrait Section */
+/* 1. Our Story Portrait Section */
 .story-portrait-wrapper {
     position: relative !important;
     width: 100% !important;
@@ -737,76 +564,23 @@ h1, h2, h3, h4 {
 </style>
 
 </head>
-<body class="bg-dark text-cream antialiased selection:bg-gold/30 selection:text-gold-light overflow-hidden" style="overflow:hidden">
-    <div hidden=""></div><div class="cursor-dot  hidden"></div><div class="cursor-ring hidden"></div><audio id="bg-music" src="audio/wedding-music.mp3" preload="auto" loop></audio><div class="fixed bottom-6 left-5 z-9990 sm:bottom-8 sm:left-7"><button aria-label="Play music" class="relative flex items-center justify-center" tabindex="0" style="width:42px;height:42px;border:1px solid rgba(200,164,93,0.35);background:rgba(18,11,8,0.72);backdrop-filter:blur(12px);transform:scale(0.85)" id="audio-toggle-btn"><div class="relative z-10"><div style="width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:9px solid #c8a45d;margin-left:2px"></div></div></button></div><div class="grain" aria-hidden="true"></div><div id="cover-overlay" class="fixed inset-0 z-[99990] flex items-center justify-center select-none overflow-hidden" style="position:fixed;inset:0;width:100vw;height:100vh;z-index:99990;background:var(--color-dark, #0a0508);">
-    
-    <!-- Atmospheric Blurred Desktop Backdrop (eliminates empty space on wide screens without cropping) -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none block">
-        <img alt="Atmospheric Backdrop" decoding="async" class="h-full w-full object-cover object-center" style="filter:blur(36px) brightness(0.22);transform:scale(1.15);" src="images/couple/invite-cover.jpg"/>
-        <div class="absolute inset-0" style="background:radial-gradient(ellipse at center, rgba(10,5,8,0.4) 0%, rgba(8,4,7,0.92) 80%);"></div>
+<body class="bg-dark text-cream antialiased selection:bg-gold/30 selection:text-gold-light">
+    <!-- Background Audio -->
+    <audio id="bg-music" src="audio/wedding-music.mp3" preload="auto" loop></audio>
+
+    <!-- Discreet Audio Toggle Button -->
+    <div class="fixed bottom-6 left-5 z-50 sm:bottom-8 sm:left-7">
+        <button id="audio-toggle-btn" type="button" aria-label="Toggle music" class="cal-btn relative flex items-center justify-center rounded-full text-gold-accent hover:text-gold-light cursor-pointer shadow-lg transition-transform hover:scale-105" style="width:44px;height:44px;">
+            <svg id="audio-icon-play" class="w-4 h-4 ml-0.5" fill="currentColor" viewBox="0 0 384 512"><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
+            <svg id="audio-icon-pause" class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 320 512"><path d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z"/></svg>
+        </button>
     </div>
 
-    <!-- Centerpiece Royal Wedding Card (Refined, proportional floating keepsake) -->
-    <div id="cover-card" class="relative flex flex-col items-center justify-between text-center overflow-hidden transition-all duration-700 rounded-sm shadow-2xl">
-        
-        <!-- The Uncropped Couple Photo (fits portrait naturally in the card without zooming or cropping) -->
-        <div class="absolute inset-0">
-            <img alt="Dimpal &amp; Kartik" decoding="async" data-nimg="fill" class="h-full w-full object-cover object-center" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" sizes="(max-width: 768px) 100vw, 420px" src="images/couple/invite-cover.jpg"/>
-        </div>
-        
-        <!-- Elegant Dark & Gold Vignette Overlays -->
-        <div class="absolute inset-0" style="background:linear-gradient(to top, rgba(8,4,7,0.96) 0%, rgba(8,4,7,0.72) 32%, rgba(8,4,7,0.18) 60%, rgba(8,4,7,0.55) 100%);"></div>
-        <div class="pointer-events-none absolute inset-0" style="background:radial-gradient(ellipse 80% 60% at 50% 70%, rgba(212,175,55,0.14) 0%, transparent 70%);"></div>
-        
-        <!-- Corner Gold Filigree Ornaments -->
-        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="pointer-events-none absolute top-4 left-4 sm:top-7 sm:left-7 rotate-135" style="color:var(--color-gold-glow-40)" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M254.963 40.213c-37.634 31.356-62.038 67.976-77.916 109.394 8.544 12.5 16.607 25.44 24.228 38.594 15.642-5.553 32.468-8.587 49.995-8.587 17.886 0 35.046 3.156 50.96 8.93 9.07-14.52 18.652-28.856 28.89-42.66-15.736-38.504-39.406-74.025-76.157-105.67zM434.593 72.5c-46.74 28.5-83.334 74.49-114.616 123.826 21.934 11.372 40.696 28.023 54.636 48.244 23.212-22.514 48.206-44.643 75.58-66.82-.882-31.955-5.798-67.033-15.6-105.25zm-353.03 1.094c-9.435 37.96-14.433 72.695-15.74 104.27 23.62 20.078 45.453 40.406 65.78 61.603 13.77-18.29 31.614-33.345 52.194-43.774-28.336-48.245-62.472-92.77-102.234-122.1zm-54.59 96.7C9.708 278.34 31.295 358.165 72.27 411.517c22.427 29.2 50.77 50.62 82.128 64.363-20.892-35.934-25.973-76.777-16.613-116.112 4.668-19.617 12.848-38.864 24.274-57.09-38.14-48.11-82.083-90.01-135.087-132.383zm462.588.464c-59.87 45.918-108.408 90.682-151.36 138.615 9.625 17.744 16.24 36.16 19.722 54.732 7.08 37.78 1.012 76.134-18.31 109.926 32.2-14.254 62.005-35.988 86.51-65.214 44.98-53.64 72.394-132.675 63.44-238.058zM251.27 198.3c-44.09 0-83.025 21.667-106.764 54.954 9.898 10.856 19.428 21.973 28.64 33.42 18.55-24.415 43.224-46.48 73.372-64.422l5.072-3.02 4.906 3.286c30.383 20.345 54.374 44.323 71.65 70.185 10.638-11.774 21.61-23.376 33.012-34.85-23.354-35.875-63.803-59.552-109.888-59.552zm-.268 43.182c-51.58 32.272-84.19 77.032-95.035 122.612-10.94 45.97-.302 92.658 35.986 130.607h108.904c34.806-36.38 47.222-81.652 38.696-127.15-8.466-45.177-37.988-90.634-88.55-126.068z"></path></svg>
-        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="pointer-events-none absolute top-4 right-4 sm:top-7 sm:right-7 rotate-225" style="color:var(--color-gold-glow-40)" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M254.963 40.213c-37.634 31.356-62.038 67.976-77.916 109.394 8.544 12.5 16.607 25.44 24.228 38.594 15.642-5.553 32.468-8.587 49.995-8.587 17.886 0 35.046 3.156 50.96 8.93 9.07-14.52 18.652-28.856 28.89-42.66-15.736-38.504-39.406-74.025-76.157-105.67zM434.593 72.5c-46.74 28.5-83.334 74.49-114.616 123.826 21.934 11.372 40.696 28.023 54.636 48.244 23.212-22.514 48.206-44.643 75.58-66.82-.882-31.955-5.798-67.033-15.6-105.25zm-353.03 1.094c-9.435 37.96-14.433 72.695-15.74 104.27 23.62 20.078 45.453 40.406 65.78 61.603 13.77-18.29 31.614-33.345 52.194-43.774-28.336-48.245-62.472-92.77-102.234-122.1zm-54.59 96.7C9.708 278.34 31.295 358.165 72.27 411.517c22.427 29.2 50.77 50.62 82.128 64.363-20.892-35.934-25.973-76.777-16.613-116.112 4.668-19.617 12.848-38.864 24.274-57.09-38.14-48.11-82.083-90.01-135.087-132.383zm462.588.464c-59.87 45.918-108.408 90.682-151.36 138.615 9.625 17.744 16.24 36.16 19.722 54.732 7.08 37.78 1.012 76.134-18.31 109.926 32.2-14.254 62.005-35.988 86.51-65.214 44.98-53.64 72.394-132.675 63.44-238.058zM251.27 198.3c-44.09 0-83.025 21.667-106.764 54.954 9.898 10.856 19.428 21.973 28.64 33.42 18.55-24.415 43.224-46.48 73.372-64.422l5.072-3.02 4.906 3.286c30.383 20.345 54.374 44.323 71.65 70.185 10.638-11.774 21.61-23.376 33.012-34.85-23.354-35.875-63.803-59.552-109.888-59.552zm-.268 43.182c-51.58 32.272-84.19 77.032-95.035 122.612-10.94 45.97-.302 92.658 35.986 130.607h108.904c34.806-36.38 47.222-81.652 38.696-127.15-8.466-45.177-37.988-90.634-88.55-126.068z"></path></svg>
-        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="pointer-events-none absolute bottom-4 left-4 sm:bottom-7 sm:left-7 rotate-45" style="color:var(--color-gold-glow-40)" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M254.963 40.213c-37.634 31.356-62.038 67.976-77.916 109.394 8.544 12.5 16.607 25.44 24.228 38.594 15.642-5.553 32.468-8.587 49.995-8.587 17.886 0 35.046 3.156 50.96 8.93 9.07-14.52 18.652-28.856 28.89-42.66-15.736-38.504-39.406-74.025-76.157-105.67zM434.593 72.5c-46.74 28.5-83.334 74.49-114.616 123.826 21.934 11.372 40.696 28.023 54.636 48.244 23.212-22.514 48.206-44.643 75.58-66.82-.882-31.955-5.798-67.033-15.6-105.25zm-353.03 1.094c-9.435 37.96-14.433 72.695-15.74 104.27 23.62 20.078 45.453 40.406 65.78 61.603 13.77-18.29 31.614-33.345 52.194-43.774-28.336-48.245-62.472-92.77-102.234-122.1zm-54.59 96.7C9.708 278.34 31.295 358.165 72.27 411.517c22.427 29.2 50.77 50.62 82.128 64.363-20.892-35.934-25.973-76.777-16.613-116.112 4.668-19.617 12.848-38.864 24.274-57.09-38.14-48.11-82.083-90.01-135.087-132.383zm462.588.464c-59.87 45.918-108.408 90.682-151.36 138.615 9.625 17.744 16.24 36.16 19.722 54.732 7.08 37.78 1.012 76.134-18.31 109.926 32.2-14.254 62.005-35.988 86.51-65.214 44.98-53.64 72.394-132.675 63.44-238.058zM251.27 198.3c-44.09 0-83.025 21.667-106.764 54.954 9.898 10.856 19.428 21.973 28.64 33.42 18.55-24.415 43.224-46.48 73.372-64.422l5.072-3.02 4.906 3.286c30.383 20.345 54.374 44.323 71.65 70.185 10.638-11.774 21.61-23.376 33.012-34.85-23.354-35.875-63.803-59.552-109.888-59.552zm-.268 43.182c-51.58 32.272-84.19 77.032-95.035 122.612-10.94 45.97-.302 92.658 35.986 130.607h108.904c34.806-36.38 47.222-81.652 38.696-127.15-8.466-45.177-37.988-90.634-88.55-126.068z"></path></svg>
-        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="pointer-events-none absolute bottom-4 right-4 sm:bottom-7 sm:right-7 -rotate-45" style="color:var(--color-gold-glow-40)" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M254.963 40.213c-37.634 31.356-62.038 67.976-77.916 109.394 8.544 12.5 16.607 25.44 24.228 38.594 15.642-5.553 32.468-8.587 49.995-8.587 17.886 0 35.046 3.156 50.96 8.93 9.07-14.52 18.652-28.856 28.89-42.66-15.736-38.504-39.406-74.025-76.157-105.67zM434.593 72.5c-46.74 28.5-83.334 74.49-114.616 123.826 21.934 11.372 40.696 28.023 54.636 48.244 23.212-22.514 48.206-44.643 75.58-66.82-.882-31.955-5.798-67.033-15.6-105.25zm-353.03 1.094c-9.435 37.96-14.433 72.695-15.74 104.27 23.62 20.078 45.453 40.406 65.78 61.603 13.77-18.29 31.614-33.345 52.194-43.774-28.336-48.245-62.472-92.77-102.234-122.1zm-54.59 96.7C9.708 278.34 31.295 358.165 72.27 411.517c22.427 29.2 50.77 50.62 82.128 64.363-20.892-35.934-25.973-76.777-16.613-116.112 4.668-19.617 12.848-38.864 24.274-57.09-38.14-48.11-82.083-90.01-135.087-132.383zm462.588.464c-59.87 45.918-108.408 90.682-151.36 138.615 9.625 17.744 16.24 36.16 19.722 54.732 7.08 37.78 1.012 76.134-18.31 109.926 32.2-14.254 62.005-35.988 86.51-65.214 44.98-53.64 72.394-132.675 63.44-238.058zM251.27 198.3c-44.09 0-83.025 21.667-106.764 54.954 9.898 10.856 19.428 21.973 28.64 33.42 18.55-24.415 43.224-46.48 73.372-64.422l5.072-3.02 4.906 3.286c30.383 20.345 54.374 44.323 71.65 70.185 10.638-11.774 21.61-23.376 33.012-34.85-23.354-35.875-63.803-59.552-109.888-59.552zm-.268 43.182c-51.58 32.272-84.19 77.032-95.035 122.612-10.94 45.97-.302 92.658 35.986 130.607h108.904c34.806-36.38 47.222-81.652 38.696-127.15-8.466-45.177-37.988-90.634-88.55-126.068z"></path></svg>
-
-        <!-- Delicate Gold Inlay Border -->
-        <div class="pointer-events-none absolute" style="inset:clamp(10px, 2.5vw, 16px);border:1px solid rgba(212,175,55,0.34);"></div>
-
-        <!-- Invitation Content: Balanced, Centerpiece "Open Invitation" Royal Seal -->
-        <div class="relative z-10 flex w-full h-full flex-col items-center justify-between px-6 py-8 sm:px-10 sm:py-10 text-center my-auto">
-            
-            <!-- Top: Sacred Invocation -->
-            <div class="flex flex-col items-center pt-2 sm:pt-3">
-                <p class="mb-0.5" style="font-size:clamp(1.25rem, 2.5vh, 1.7rem);color:var(--color-gold-accent);line-height:1"><span id="cover-invocation-symbol" class="font-devanagari opacity-95">ॐ</span></p>
-                <p id="cover-invocation-heading" class="mb-1 font-devanagari font-medium" style="font-size:clamp(0.92rem, 1.9vh, 1.2rem);color:var(--color-gold-accent);line-height:1.25">श्री गणेशाय नमः</p>
-                <p id="cover-invocation-subtitle" class="font-cinzel uppercase tracking-[0.24em] sm:tracking-[0.32em] px-2" style="font-size:clamp(0.48rem, 1.1vh, 0.62rem);color:var(--color-gold-accent);opacity:0.85">With The Blessings Of Lord Ganesha</p>
-            </div>
-
-            <!-- Centerpiece: Couple Names & Royal Wax Seal "Open Invitation" Button in the Center -->
-            <div class="flex flex-col items-center my-auto py-2">
-                <h1 id="cover-bride-name" class="font-display font-light gold-foil-text" style="font-size:clamp(1.9rem, 4.2vh, 3.1rem);line-height:1.1;letter-spacing:-0.02em;">Dimpal</h1>
-                <div class="my-0.5 ampersand text-gold-accent" style="font-size:clamp(1.5rem, 2.8vh, 2rem);line-height:1">&amp;</div>
-                <h1 id="cover-groom-name" class="font-display font-light gold-foil-text" style="font-size:clamp(1.9rem, 4.2vh, 3.1rem);line-height:1.1;letter-spacing:-0.02em;">Kartik</h1>
-
-                <div class="royal-divider my-2.5"><span class="motif">✦</span></div>
-
-                <!-- Center: Royal Wax Seal "Open Invitation" Button (Centered on first page) -->
-                <div class="my-2 relative z-20">
-                    <button type="button" onclick="openInvite()" id="open-invite-btn" class="wax-seal-btn group relative flex items-center justify-center gap-2.5 overflow-hidden px-8 py-3 sm:px-10 sm:py-3.5 cursor-pointer" tabindex="0" style="border-radius:2px;">
-                        <span class="absolute inset-0 -translate-x-full -skew-x-12 transition-transform duration-700 ease-out group-hover:translate-x-full" style="background:linear-gradient(105deg, transparent 30%, var(--color-gold-shimmer) 50%, transparent 70%)"></span>
-                        <span class="relative text-gold-accent opacity-85 text-xs">✦</span>
-                        <span id="open-invite-btn-text" class="relative font-cinzel uppercase tracking-[0.38em] text-gold-light font-medium" style="font-size:clamp(0.65rem, 1.4vh, 0.78rem)">Open Invitation</span>
-                        <span class="relative text-gold-accent opacity-85 text-xs">✦</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Bottom: Auspicious Blessing -->
-            <div class="pb-2 sm:pb-3">
-                <p id="cover-tagline" class="font-devanagari tracking-[0.2em]" style="font-size:clamp(0.68rem, 1.4vh, 0.82rem);color:var(--color-gold-accent)">शुभ विवाह ✦ मंगलम्</p>
-            </div>
-        </div>
-    </div>
-</div>
-    <main id="main-content" class="bg-dark min-h-screen relative z-10" style="visibility:hidden;opacity:0;">
+    <!-- Main Invitation Content -->
+    <main id="main-content" class="bg-dark min-h-screen relative z-10">
         <!-- Hero Section with Looping Background Video -->
         <section class="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-black">
-            <video muted="" playsInline="" loop="" preload="metadata" class="absolute inset-0 h-full w-full object-cover object-center" style="transform:scale(1.06)"><source src="video/wedding.mp4" type="video/mp4"/></video>
+            <video autoplay="" muted="" playsInline="" loop="" preload="metadata" class="absolute inset-0 h-full w-full object-cover object-center" style="transform:scale(1.06)"><source src="video/wedding.mp4" type="video/mp4"/></video>
             <div class="absolute inset-0 z-10" style="background:var(--color-black-42)"></div>
             <div class="relative z-20 flex w-full flex-col items-center px-6 text-center sm:px-10">
                 <div class="relative mb-6 sm:mb-8" style="width:clamp(90px, 18vw, 160px);height:clamp(90px, 18vw, 160px);transform:scale(0.82)">
@@ -841,7 +615,7 @@ h1, h2, h3, h4 {
             </div>
         </section>
 
-        <div class="royal-divider"><span class="motif">✦</span></div><section id="countdown-section" class="relative flex flex-col items-center justify-center overflow-hidden px-5 sm:px-8 py-20 sm:py-28" style="background:var(--color-dark)">
+        <section id="countdown-section" class="relative flex flex-col items-center justify-center overflow-hidden px-5 sm:px-8 py-20 sm:py-28" style="background:var(--color-dark)">
     <!-- Ambient Radial Glow Behind Timer -->
     <div class="pointer-events-none absolute inset-0" style="background:radial-gradient(ellipse 70% 55% at 50% 50%, var(--color-gold-glow-06) 0%, transparent 75%)"></div>
 
@@ -955,67 +729,10 @@ h1, h2, h3, h4 {
             </button>
         </div>
 
-        <!-- Royal Ornamental Divider Between Countdown and Scratch Card -->
-        <div class="flex items-center justify-center gap-3 w-full my-6 sm:my-10 opacity-70">
-            <span class="h-px w-16 sm:w-28" style="background:linear-gradient(to right, transparent, var(--color-gold-dim))"></span>
-            <span class="text-gold-accent text-xs sm:text-sm">✦</span>
-            <span class="h-px w-16 sm:w-28" style="background:linear-gradient(to left, transparent, var(--color-gold-dim))"></span>
-        </div>
 
-        <!-- Redesigned Golden Foil Scratch Card (Comfortable aspect ratio & breathing room) -->
-        <div class="flex w-full flex-col items-center pt-2 sm:pt-4">
-            
-            <div id="scratch-card-container" class="relative w-full max-w-lg mx-auto select-none overflow-hidden rounded-sm shadow-2xl" style="aspect-ratio:16/10.5; min-height:290px; max-height:360px; background:linear-gradient(135deg, rgba(20, 14, 22, 0.98) 0%, rgba(10, 7, 12, 1) 100%);">
-                
-                <!-- Celebratory Flare Overlay (flashes when revealed) -->
-                <div id="reveal-flash" class="pointer-events-none absolute inset-0 z-30 opacity-0 transition-opacity duration-700" style="background:radial-gradient(circle at 50% 50%, rgba(255,255,255,0.95) 0%, rgba(229,195,120,0.6) 45%, transparent 75%)"></div>
-
-                <!-- Hidden Reveal Layer: Bespoke Royal Keepsake Card -->
-                <div id="reveal-layer" class="absolute inset-0 flex flex-col items-center justify-between px-6 py-7 sm:px-10 sm:py-9 text-center select-none z-0 overflow-hidden">
-                    <!-- Subtle ambient pattern / inner border -->
-                    <div class="absolute inset-3.5 sm:inset-5 rounded-sm border pointer-events-none" style="border-color:var(--color-gold-border-xs)"></div>
-                    <span class="absolute top-3.5 left-3.5 sm:top-5 sm:left-5 h-2 w-2 border-t border-l" style="border-color:var(--color-gold-bracket)"></span>
-                    <span class="absolute top-3.5 right-3.5 sm:top-5 sm:right-5 h-2 w-2 border-t border-r" style="border-color:var(--color-gold-bracket)"></span>
-                    <span class="absolute bottom-3.5 left-3.5 sm:bottom-5 sm:left-5 h-2 w-2 border-b border-l" style="border-color:var(--color-gold-bracket)"></span>
-                    <span class="absolute bottom-3.5 right-3.5 sm:bottom-5 sm:right-5 h-2 w-2 border-b border-r" style="border-color:var(--color-gold-bracket)"></span>
-
-                    <!-- Top: Auspicious Invocation -->
-                    <div class="flex flex-col items-center pt-1.5 sm:pt-2">
-                        <p class="font-display italic text-xs sm:text-sm text-gold-accent leading-none">श्री गणेशाय नमः</p>
-                        <p id="scratch-badge" class="font-cinzel uppercase tracking-[0.25em] text-gold-accent text-[9px] sm:text-[10px] mt-1.5">✦ Save Our Date ✦</p>
-                    </div>
-
-                    <!-- Middle: Names & Date -->
-                    <div class="flex flex-col items-center my-auto py-3">
-                        <h3 id="scratch-names" class="font-display text-2xl sm:text-3xl md:text-4xl gold-foil-text leading-tight tracking-tight">Dimpal &amp; Kartik</h3>
-                        <div class="flex items-center gap-3 my-2">
-                            <span class="h-px w-8 sm:w-12 bg-gold/50"></span>
-                            <p id="scratch-date" class="font-cinzel text-xs sm:text-sm text-gold-light tracking-[0.2em] font-medium">11 December 2026</p>
-                            <span class="h-px w-8 sm:w-12 bg-gold/50"></span>
-                        </div>
-                        <p id="scratch-venue" class="font-body text-xs sm:text-sm text-cream opacity-85 mt-1">Gogunda · Udaipur, Rajasthan</p>
-                    </div>
-
-                    <!-- Bottom: Shloka Blessing -->
-                    <div class="flex items-center justify-center gap-2.5 pb-1.5 sm:pb-2">
-                        <span class="text-gold-accent text-[11px]">✦</span>
-                        <span id="scratch-blessing" class="font-display italic text-xs sm:text-sm text-gold">शुभ विवाह ✦ मंगलम्</span>
-                        <span class="text-gold-accent text-[11px]">✦</span>
-                    </div>
-                </div>
-
-                <!-- Scratch Canvas (24K Gold Leaf Texture & Embossed Foil) -->
-                <canvas id="scratch-canvas" class="absolute inset-0 h-full w-full touch-none z-20 transition-opacity duration-700" style="cursor:crosshair"></canvas>
-            </div>
-        </div>
 
     </div>
 </section>
-
-    <!-- Royal Ornament Divider -->
-    <div class="royal-divider">
-        <span class="motif">✦</span>
-    </div>
 
     <!-- 1. OUR STORY SECTION -->
     <section id="story-section" class="scroll-reveal relative overflow-hidden px-5 sm:px-8 lg:px-12 py-20 sm:py-28" style="background:var(--color-dark)">
@@ -1067,8 +784,6 @@ h1, h2, h3, h4 {
         </div>
     </section>
 
-    <!-- Royal Ornament Divider -->
-    <div class="royal-divider"><span class="motif">✦</span></div>
 
     <!-- 2. FAMILY INTRODUCTIONS -->
     <section id="family-section" class="scroll-reveal relative py-20 sm:py-28 px-5 sm:px-8 lg:px-12 overflow-hidden" style="background:var(--color-dark)">
@@ -1115,8 +830,6 @@ h1, h2, h3, h4 {
         </div>
     </section>
 
-    <!-- Royal Ornament Divider -->
-    <div class="royal-divider"><span class="motif">✦</span></div>
 
     <!-- 3. WEDDING CELEBRATIONS SECTION -->
     <section id="events-section" class="scroll-reveal relative overflow-hidden px-5 sm:px-8 lg:px-12 py-20 sm:py-28" style="background:var(--color-dark)">
@@ -1137,8 +850,6 @@ h1, h2, h3, h4 {
         </div>
     </section>
 
-    <!-- Royal Ornament Divider -->
-    <div class="royal-divider"><span class="motif">✦</span></div>
 
     <!-- 4. PHOTO GALLERY SECTION -->
     <section id="gallery-section" class="scroll-reveal relative overflow-hidden px-5 sm:px-8 lg:px-12 py-20 sm:py-28" style="background:var(--color-dark)">
@@ -1159,8 +870,6 @@ h1, h2, h3, h4 {
         </div>
     </section>
 
-    <!-- Royal Ornament Divider -->
-    <div class="royal-divider"><span class="motif">✦</span></div>
 
     <!-- 5. VENUE & DIRECTIONS SECTION -->
     <section id="venue-section" class="scroll-reveal relative overflow-hidden px-5 sm:px-8 lg:px-12 py-20 sm:py-28" style="background:var(--color-dark)">
@@ -1192,8 +901,6 @@ h1, h2, h3, h4 {
         </div>
     </section>
 
-    <!-- Royal Ornament Divider -->
-    <div class="royal-divider"><span class="motif">✦</span></div>
 
     <!-- 6. RSVP / JOIN US SECTION -->
     <section id="rsvp-section" class="scroll-reveal relative py-20 sm:py-28 px-5 sm:px-8 lg:px-12 overflow-hidden" style="background:var(--color-dark)">
@@ -1214,8 +921,6 @@ h1, h2, h3, h4 {
         </div>
     </section>
 
-    <!-- Royal Ornament Divider -->
-    <div class="royal-divider"><span class="motif">✦</span></div>
 
     <!-- 7. ROYAL FOOTER -->
     <footer id="footer-section" class="scroll-reveal relative overflow-hidden px-5 sm:px-8 lg:px-12 py-16 sm:py-24" style="background:var(--color-dark)">
@@ -1265,8 +970,6 @@ h1, h2, h3, h4 {
     </button>
 </div>
 
-<!-- Confetti Canvas -->
-<canvas id="confetti-canvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:999999;display:block;"></canvas>
 
 <!-- Floating Back to Top Button -->
 <button id="back-to-top-btn" type="button" aria-label="Back to top" class="fixed bottom-6 right-5 z-9990 sm:bottom-8 sm:right-7 flex items-center justify-center rounded-full opacity-0 pointer-events-none cursor-pointer" style="width:42px;height:42px;border:1px solid rgba(229,195,120,0.38);background:rgba(20,14,24,0.85);backdrop-filter:blur(12px);color:var(--color-gold-light);box-shadow:0 4px 18px rgba(0,0,0,0.6);">
@@ -1284,98 +987,21 @@ const galleryImages = (window.WEDDING_CONFIG && window.WEDDING_CONFIG.gallery &&
 window.galleryImages = galleryImages;
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Cover Overlay & Open Invite Handler
-    const coverOverlay = document.getElementById('cover-overlay');
-    const openBtn = document.getElementById('open-invite-btn');
+    // 1. Audio Toggle Player
     const audio = document.getElementById('bg-music');
     const audioBtn = document.getElementById('audio-toggle-btn');
-    let isPlaying = false;
+    const iconPlay = document.getElementById('audio-icon-play');
+    const iconPause = document.getElementById('audio-icon-pause');
 
-    function playAudioWithFade() {
-        if (!audio) return;
-        audio.volume = 0;
-        const playPromise = audio.play();
-        if (playPromise !== undefined) {
-            playPromise.then(() => {
-                isPlaying = true;
-                updateAudioUI(true);
-                let currentVol = 0;
-                const fade = setInterval(() => {
-                    currentVol = Math.min(0.75, currentVol + 0.05);
-                    audio.volume = currentVol;
-                    if (currentVol >= 0.75) clearInterval(fade);
-                }, 80);
-            }).catch(e => console.log("Audio notice:", e));
-        }
-    }
-
-    function openInvite() {
-        // 1. Tactile envelope unrolling & lift animation
-        if (coverOverlay) {
-            coverOverlay.classList.add('opening');
-        }
-
-        // 2. Play celebratory wedding audio with gentle fade-in
-        playAudioWithFade();
-
-        // 3. Double golden confetti burst
-        triggerConfetti();
-        setTimeout(triggerConfetti, 400);
-
-        // 4. Reveal main invitation content and play hero video
-        const mainContent = document.getElementById('main-content');
-        const heroVideo = document.querySelector('#main-content video');
-
-        setTimeout(() => {
-            if (mainContent) {
-                mainContent.style.visibility = 'visible';
-                mainContent.style.opacity = '1';
-            }
-            if (heroVideo) {
-                heroVideo.currentTime = 0;
-                heroVideo.play().catch(() => {});
-            }
-            document.body.classList.remove('overflow-hidden');
-            document.body.style.overflow = 'auto';
-            window.scrollTo({ top: 0, behavior: 'instant' });
-        }, 400);
-
-        // 5. Unmount cover overlay after transition completes
-        setTimeout(() => {
-            if (coverOverlay) {
-                coverOverlay.style.display = 'none';
-            }
-        }, 1200);
-    }
-
-    // Expose openInvite globally for button onclick
-    window.openInvite = openInvite;
-
-    if (openBtn) {
-        openBtn.addEventListener('click', openInvite);
-    }
-
-    // 2. Audio Toggle Button
     function updateAudioUI(playing) {
-        if (!audioBtn) return;
-        if (playing) {
-            audioBtn.classList.add('playing-pulse');
-            audioBtn.style.borderColor = 'var(--color-gold)';
-            audioBtn.innerHTML = `
-                <div class="relative z-10 flex items-center justify-center gap-1">
-                    <span class="block w-1 h-3.5 bg-gold rounded-xs animate-pulse"></span>
-                    <span class="block w-1 h-4.5 bg-gold rounded-xs animate-pulse" style="animation-delay:0.15s"></span>
-                    <span class="block w-1 h-2.5 bg-gold rounded-xs animate-pulse" style="animation-delay:0.3s"></span>
-                </div>
-            `;
-        } else {
-            audioBtn.classList.remove('playing-pulse');
-            audioBtn.style.borderColor = 'rgba(200,164,93,0.35)';
-            audioBtn.innerHTML = `
-                <div class="relative z-10">
-                    <div style="width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:9px solid #c8a45d;margin-left:2px"></div>
-                </div>
-            `;
+        if (iconPlay && iconPause) {
+            if (playing) {
+                iconPlay.classList.add('hidden');
+                iconPause.classList.remove('hidden');
+            } else {
+                iconPlay.classList.remove('hidden');
+                iconPause.classList.add('hidden');
+            }
         }
     }
 
@@ -1384,18 +1010,16 @@ document.addEventListener('DOMContentLoaded', () => {
             e.stopPropagation();
             if (audio.paused) {
                 audio.play().then(() => {
-                    isPlaying = true;
                     updateAudioUI(true);
-                }).catch(e => console.log(e));
+                }).catch(err => console.log('Audio autoplay policy:', err));
             } else {
                 audio.pause();
-                isPlaying = false;
                 updateAudioUI(false);
             }
         });
     }
 
-    // 3. Countdown Timer (Dec 11, 2026 16:30 IST)
+    // 2. Countdown Timer (Dec 11, 2026 16:30 IST)
     const weddingTimestamp = (window.WEDDING_CONFIG && window.WEDDING_CONFIG.weddingDate && window.WEDDING_CONFIG.weddingDate.countdownTarget)
         ? new Date(window.WEDDING_CONFIG.weddingDate.countdownTarget).getTime()
         : new Date("2026-12-11T16:30:00+05:30").getTime();
@@ -1431,7 +1055,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    // 3b. Add to Calendar Functionality
+    // 3. Add to Calendar Functionality
     const googleCalBtn = document.getElementById('add-google-cal-btn');
     if (googleCalBtn) {
         googleCalBtn.addEventListener('click', () => {
@@ -1484,318 +1108,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Interactive Golden Foil Scratch Card
-    let isFoilCleared = false;
 
-    window.revealScratchCard = function() { revealScratchCard(); };
-    function revealScratchCard() {
-        if (isFoilCleared) return;
-        isFoilCleared = true;
-
-        const canvas = document.getElementById('scratch-canvas');
-        const flash = document.getElementById('reveal-flash');
-        const cardContainer = document.getElementById('scratch-card-container');
-
-        // 1. Golden flash flare
-        if (flash) {
-            flash.style.opacity = '0.95';
-            setTimeout(() => { flash.style.opacity = '0'; }, 500);
-        }
-
-        // 2. Smoothly fade canvas away
-        if (canvas) {
-            canvas.style.opacity = '0';
-            setTimeout(() => { canvas.style.display = 'none'; }, 650);
-        }
-
-        // 3. Card celebration pulse and border glow
-        if (cardContainer) {
-            cardContainer.classList.add('celebration-active');
-        }
-
-        // 4. Launch royal celebratory fireworks & confetti
-        if (cardContainer) {
-            const rect = cardContainer.getBoundingClientRect();
-            triggerCelebration(rect.left + rect.width / 2, rect.top + rect.height / 2);
-        } else {
-            triggerCelebration(window.innerWidth / 2, window.innerHeight / 2);
-        }
-    }
-
-    initScratchCard();
-
-    function initScratchCard() {
-        const canvas = document.getElementById('scratch-canvas');
-        if (!canvas) return;
-        canvas.addEventListener('dblclick', () => {
-            revealScratchCard();
-        });
-        const ctx = canvas.getContext('2d');
-        const container = canvas.parentElement;
-
-        function resizeCanvas() {
-            if (isFoilCleared) return;
-            const rect = container.getBoundingClientRect();
-            if (rect.width === 0 || rect.height === 0) return;
-            
-            // Handle high-DPI retina display
-            const dpr = window.devicePixelRatio || 1;
-            canvas.width = rect.width * dpr;
-            canvas.height = rect.height * dpr;
-            ctx.scale(dpr, dpr);
-            drawFoil(rect.width, rect.height);
-        }
-
-        function drawFoil(w, h) {
-            if (isFoilCleared) return;
-
-            // 1. Multi-stop 24K Imperial Gold leaf gradient
-            const grad = ctx.createLinearGradient(0, 0, w, h);
-            grad.addColorStop(0.00, '#6B4E1B'); // Rich antique gold base
-            grad.addColorStop(0.15, '#99732B'); // Warm brushed gold
-            grad.addColorStop(0.30, '#FFF4D0'); // Mirror diamond champagne highlight
-            grad.addColorStop(0.48, '#E5C378'); // Radiant 24K imperial gold
-            grad.addColorStop(0.65, '#ECCF8D'); // Lustrous gold
-            grad.addColorStop(0.80, '#FFFDF5'); // Secondary specular reflection
-            grad.addColorStop(0.92, '#C29845'); // Deep honey gold
-            grad.addColorStop(1.00, '#4A340E'); // Warm dark gold undertone
-
-            ctx.fillStyle = grad;
-            ctx.fillRect(0, 0, w, h);
-
-            // 2. Micro-brushed platinum texture lines
-            ctx.save();
-            ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
-            ctx.lineWidth = 1;
-            for (let i = -w; i < w * 2; i += 8) {
-                ctx.beginPath();
-                ctx.moveTo(i, 0);
-                ctx.lineTo(i + h, h);
-                ctx.stroke();
-            }
-            ctx.restore();
-
-            // 3. Shimmering starlight & crystal flecks
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.35)';
-            for (let i = 0; i < 260; i++) {
-                ctx.fillRect(Math.random() * w, Math.random() * h, 1.5, 1.5);
-            }
-            ctx.fillStyle = 'rgba(251, 244, 226, 0.45)';
-            for (let i = 0; i < 200; i++) {
-                ctx.fillRect(Math.random() * w, Math.random() * h, 2, 2);
-            }
-            ctx.fillStyle = 'rgba(15, 23, 42, 0.18)';
-            for (let i = 0; i < 180; i++) {
-                ctx.fillRect(Math.random() * w, Math.random() * h, 1.2, 1.2);
-            }
-
-            // 4. Ornate Liquid Platinum Outer & Inner Border
-            ctx.save();
-            ctx.strokeStyle = 'rgba(15, 23, 42, 0.50)';
-            ctx.lineWidth = 1.5;
-            ctx.strokeRect(8, 8, w - 16, h - 16);
-
-            ctx.strokeStyle = 'rgba(248, 250, 252, 0.65)';
-            ctx.lineWidth = 1;
-            ctx.strokeRect(12, 12, w - 24, h - 24);
-
-            // Corner decorative brackets on the foil
-            const bracketSize = Math.max(12, Math.min(22, w * 0.04));
-            ctx.strokeStyle = 'rgba(241, 245, 249, 0.85)';
-            ctx.lineWidth = 1.5;
-            // Top Left
-            ctx.beginPath();
-            ctx.moveTo(18, 18 + bracketSize); ctx.lineTo(18, 18); ctx.lineTo(18 + bracketSize, 18); ctx.stroke();
-            // Top Right
-            ctx.beginPath();
-            ctx.moveTo(w - 18 - bracketSize, 18); ctx.lineTo(w - 18, 18); ctx.lineTo(w - 18, 18 + bracketSize); ctx.stroke();
-            // Bottom Left
-            ctx.beginPath();
-            ctx.moveTo(18, h - 18 - bracketSize); ctx.lineTo(18, h - 18); ctx.lineTo(18 + bracketSize, h - 18); ctx.stroke();
-            // Bottom Right
-            ctx.beginPath();
-            ctx.moveTo(w - 18 - bracketSize, h - 18); ctx.lineTo(w - 18, h - 18); ctx.lineTo(w - 18, h - 18 - bracketSize); ctx.stroke();
-            ctx.restore();
-
-            // 5. Auspicious Motif & Circular Emblem
-            ctx.save();
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-
-            const cx = w / 2;
-
-            const cfgScratch = (window.WEDDING_CONFIG && window.WEDDING_CONFIG.scratchCard) || {};
-            const topPrompt = cfgScratch.foilTopPrompt || '✦  ROYAL WEDDING INVITATION  ✦';
-            const centerTitle = cfgScratch.foilCenterTitle || 'SCRATCH TO REVEAL';
-            const btmPrompt = cfgScratch.foilBottomPrompt || '✦  SWIPE TO UNLOCK SAVE THE DATE  ✦';
-
-            // Top prompt
-            const topFontSize = Math.max(9, Math.min(13, w * 0.024));
-            ctx.font = `600 ${topFontSize}px "Cinzel", serif`;
-            ctx.fillStyle = 'rgba(15, 23, 42, 0.88)';
-            ctx.fillText(topPrompt, cx, h * 0.26);
-
-            // Center: 3D Embossed Platinum Title
-            const titleFontSize = Math.max(16, Math.min(26, w * 0.052));
-            ctx.font = `700 ${titleFontSize}px "Cinzel", serif`;
-
-            // Embossed Shadow
-            ctx.fillStyle = 'rgba(50, 32, 8, 0.90)';
-            ctx.fillText(centerTitle, cx + 1.2, h * 0.52 + 1.2);
-            // Embossed Highlight
-            ctx.fillStyle = 'rgba(255, 250, 235, 0.95)';
-            ctx.fillText(centerTitle, cx - 1, h * 0.52 - 1);
-            // Main Text Face
-            ctx.fillStyle = 'rgba(60, 42, 12, 0.95)';
-            ctx.fillText(centerTitle, cx, h * 0.52);
-
-            // Bottom Prompt
-            const btmFontSize = Math.max(8.5, Math.min(12, w * 0.022));
-            ctx.font = `600 ${btmFontSize}px "Cinzel", serif`;
-            ctx.fillStyle = 'rgba(15, 23, 42, 0.88)';
-            ctx.fillText(btmPrompt, cx, h * 0.76);
-            ctx.restore();
-        }
-
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
-
-        let isDrawing = false;
-        let lastX = null;
-        let lastY = null;
-        let scratchMoves = 0;
-        let totalScratchDistance = 0;
-
-        function scratch(x, y) {
-            if (isFoilCleared) return;
-            const dpr = window.devicePixelRatio || 1;
-            
-            ctx.save();
-            ctx.globalCompositeOperation = 'destination-out';
-            ctx.lineWidth = Math.max(22, Math.min(36, (canvas.width / dpr) * 0.055));
-            ctx.lineCap = 'round';
-            ctx.lineJoin = 'round';
-            ctx.beginPath();
-
-            if (lastX !== null && lastY !== null) {
-                ctx.moveTo(lastX, lastY);
-                ctx.lineTo(x, y);
-                ctx.stroke();
-                totalScratchDistance += Math.hypot(x - lastX, y - lastY);
-            } else {
-                ctx.arc(x, y, ctx.lineWidth / 2, 0, Math.PI * 2);
-                ctx.fill();
-            }
-            ctx.restore();
-
-            lastX = x;
-            lastY = y;
-            scratchMoves++;
-
-            // Check clearance frequently
-            if (scratchMoves % 5 === 0) {
-                checkClearance();
-            }
-        }
-
-        function checkClearance() {
-            if (isFoilCleared) return;
-
-            // Sample canvas alpha to measure how much has been uncovered
-            const dpr = window.devicePixelRatio || 1;
-            const w = Math.floor(canvas.width);
-            const h = Math.floor(canvas.height);
-            if (w === 0 || h === 0) return;
-
-            try {
-                const imgData = ctx.getImageData(0, 0, w, h);
-                const data = imgData.data;
-                let transparent = 0;
-                let sampled = 0;
-
-                // Sample every 20th pixel
-                for (let i = 3; i < data.length; i += 20 * 4) {
-                    sampled++;
-                    if (data[i] < 128) {
-                        transparent++;
-                    }
-                }
-
-                const ratio = transparent / (sampled || 1);
-
-                // Reveal only after user has scratched ~40% of the foil (names and date clearly revealed)
-                if (ratio >= 0.40) {
-                    revealScratchCard();
-                    return;
-                }
-
-                // Or after prolonged active scratching across the card
-                if (ratio >= 0.28 && scratchMoves >= 120 && totalScratchDistance >= 2200) {
-                    revealScratchCard();
-                    return;
-                }
-            } catch (err) {
-                // If getImageData is restricted, allow reveal only after sustained scratching
-                if (scratchMoves >= 100 && totalScratchDistance >= 2000) {
-                    revealScratchCard();
-                }
-            }
-        }
-
-        function getCoords(e) {
-            const rect = canvas.getBoundingClientRect();
-            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-            return {
-                x: clientX - rect.left,
-                y: clientY - rect.top
-            };
-        }
-
-        canvas.addEventListener('mousedown', (e) => {
-            isDrawing = true;
-            const p = getCoords(e);
-            lastX = null;
-            lastY = null;
-            scratch(p.x, p.y);
-        });
-
-        window.addEventListener('mouseup', () => {
-            isDrawing = false;
-            lastX = null;
-            lastY = null;
-        });
-
-        canvas.addEventListener('mousemove', (e) => {
-            if (isDrawing) {
-                const p = getCoords(e);
-                scratch(p.x, p.y);
-            }
-        });
-
-        canvas.addEventListener('touchstart', (e) => {
-            isDrawing = true;
-            const p = getCoords(e);
-            lastX = null;
-            lastY = null;
-            scratch(p.x, p.y);
-        }, { passive: true });
-
-        window.addEventListener('touchend', () => {
-            isDrawing = false;
-            lastX = null;
-            lastY = null;
-        });
-
-        canvas.addEventListener('touchmove', (e) => {
-            if (isDrawing) {
-                const p = getCoords(e);
-                scratch(p.x, p.y);
-            }
-        }, { passive: true });
-    }
-
-    // 5. Gallery Lightbox
+    // 4. Gallery Lightbox
     const lightbox = document.getElementById('gallery-lightbox');
     const lbImg = document.getElementById('lightbox-img');
     const lbCaption = document.getElementById('lightbox-caption');
@@ -1874,40 +1188,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'ArrowRight') openLightbox(currentLbIndex + 1);
     });
 
-    // 6. Custom Desktop Cursor
-    const cursorDot = document.querySelector('.cursor-dot');
-    const cursorRing = document.querySelector('.cursor-ring');
-
-    if (cursorDot && cursorRing && window.matchMedia('(pointer: fine)').matches) {
-        document.body.classList.add('custom-cursor-active');
-        cursorDot.classList.remove('hidden');
-        cursorRing.classList.remove('hidden');
-
-        let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
-        let ringX = mouseX, ringY = mouseY;
-
-        window.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
-        });
-
-        function animateRing() {
-            ringX += (mouseX - ringX) * 0.18;
-            ringY += (mouseY - ringY) * 0.18;
-            cursorRing.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
-            requestAnimationFrame(animateRing);
-        }
-        animateRing();
-
-        const hoverTargets = document.querySelectorAll('a, button, input, textarea, .gallery-card, #scratch-canvas, .wax-seal-btn, .cal-btn');
-        hoverTargets.forEach(el => {
-            el.addEventListener('mouseenter', () => cursorRing.classList.add('hovering'));
-            el.addEventListener('mouseleave', () => cursorRing.classList.remove('hovering'));
-        });
-    }
-
-    // 7. Floating Back to Top Button
+    // 5. Floating Back to Top Button
     const backToTopBtn = document.getElementById('back-to-top-btn');
     if (backToTopBtn) {
         window.addEventListener('scroll', () => {
@@ -1923,7 +1204,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 8. Scroll Reveal Observer
+    // 6. Scroll Reveal Observer
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -1938,190 +1219,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// 8. Royal Celebratory Fireworks & Confetti System
-const ConfettiEngine = (function() {
-    let canvas = null;
-    let ctx = null;
-    let particles = [];
-    let animationId = null;
-
-    const colors = [
-        '#E5C378', '#FBF4E2', '#ECCF8D', '#D4AF37', '#9E7D3B',
-        '#FFF5D6', '#F5D061', '#F4A896', '#FFDF9E', '#FFFFFF'
-    ];
-
-    function init() {
-        canvas = document.getElementById('confetti-canvas');
-        if (!canvas) return;
-        ctx = canvas.getContext('2d');
-        resize();
-    }
-
-    function resize() {
-        if (!canvas) return;
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-
-    function addBurst(cx, cy, count, speedMin, speedMax, angleMin, angleMax, gravityVal) {
-        if (!canvas || !ctx) init();
-        if (!canvas || !ctx) return;
-        if (canvas.width !== window.innerWidth || canvas.height !== window.innerHeight) {
-            resize();
-        }
-
-        for (let i = 0; i < count; i++) {
-            const angle = angleMin + Math.random() * (angleMax - angleMin);
-            const speed = speedMin + Math.random() * (speedMax - speedMin);
-            const rand = Math.random();
-            const type = rand > 0.65 ? 'star' : (rand > 0.35 ? 'ribbon' : 'rect');
-
-            particles.push({
-                x: cx,
-                y: cy,
-                vx: Math.cos(angle) * speed,
-                vy: Math.sin(angle) * speed,
-                size: Math.random() * 8 + 5,
-                color: colors[Math.floor(Math.random() * colors.length)],
-                rotation: Math.random() * 360,
-                vRot: (Math.random() - 0.5) * 14,
-                tilt: Math.random() * Math.PI,
-                vTilt: (Math.random() * 0.12) + 0.06,
-                opacity: 1,
-                decay: Math.random() * 0.0055 + 0.0065,
-                gravity: gravityVal || 0.28,
-                drag: 0.982,
-                type: type
-            });
-        }
-
-        if (!animationId) {
-            loop();
-        }
-    }
-
-    function drawStar(c, x, y, r) {
-        c.beginPath();
-        for (let i = 0; i < 8; i++) {
-            const angle = (i * Math.PI) / 4;
-            const radius = i % 2 === 0 ? r : r * 0.38;
-            const px = x + Math.cos(angle) * radius;
-            const py = y + Math.sin(angle) * radius;
-            if (i === 0) c.moveTo(px, py);
-            else c.lineTo(px, py);
-        }
-        c.closePath();
-        c.fill();
-    }
-
-    function loop() {
-        if (!canvas || !ctx) return;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        let activeCount = 0;
-        for (let i = particles.length - 1; i >= 0; i--) {
-            const p = particles[i];
-            p.opacity -= p.decay;
-
-            if (p.opacity <= 0 || p.y > canvas.height + 40) {
-                particles.splice(i, 1);
-                continue;
-            }
-
-            activeCount++;
-            p.x += p.vx;
-            p.y += p.vy;
-            p.vx *= p.drag;
-            p.vy *= p.drag;
-            p.vy += p.gravity;
-            p.rotation += p.vRot;
-            p.tilt += p.vTilt;
-
-            ctx.save();
-            ctx.translate(p.x, p.y);
-            ctx.rotate((p.rotation * Math.PI) / 180);
-            ctx.globalAlpha = Math.max(0, p.opacity);
-            ctx.fillStyle = p.color;
-
-            const tiltScale = Math.cos(p.tilt);
-
-            if (p.type === 'star') {
-                drawStar(ctx, 0, 0, p.size);
-            } else if (p.type === 'ribbon') {
-                ctx.scale(1, tiltScale);
-                ctx.fillRect(-p.size / 2, -p.size * 0.8, p.size, p.size * 1.6);
-            } else {
-                ctx.scale(1, tiltScale);
-                ctx.fillRect(-p.size / 2, -p.size * 0.4, p.size, p.size * 0.8);
-            }
-            ctx.restore();
-        }
-
-        if (activeCount > 0) {
-            animationId = requestAnimationFrame(loop);
-        } else {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            animationId = null;
-        }
-    }
-
-    function fire(originX, originY) {
-        init();
-        const startX = (originX !== undefined && !isNaN(originX)) ? originX : (window.innerWidth / 2);
-        const startY = (originY !== undefined && !isNaN(originY)) ? originY : (window.innerHeight / 2);
-
-        // Wave 1: Immediate explosive radial burst from origin
-        addBurst(startX, startY, 130, 7, 24, 0, Math.PI * 2, 0.28);
-
-        // Wave 2: Left & Right Stage Cannons (+180ms)
-        setTimeout(() => {
-            addBurst(window.innerWidth * 0.08, window.innerHeight * 0.88, 80, 15, 27, -Math.PI * 0.48, -Math.PI * 0.16, 0.32);
-            addBurst(window.innerWidth * 0.92, window.innerHeight * 0.88, 80, 15, 27, -Math.PI * 0.84, -Math.PI * 0.52, 0.32);
-        }, 180);
-
-        // Wave 3: Cascading Golden Stardust Shower (+450ms)
-        setTimeout(() => {
-            for (let i = 0; i < 75; i++) {
-                particles.push({
-                    x: Math.random() * window.innerWidth,
-                    y: -15,
-                    vx: (Math.random() - 0.5) * 5,
-                    vy: Math.random() * 4 + 2.5,
-                    size: Math.random() * 7 + 4,
-                    color: colors[Math.floor(Math.random() * colors.length)],
-                    rotation: Math.random() * 360,
-                    vRot: (Math.random() - 0.5) * 10,
-                    tilt: Math.random() * Math.PI,
-                    vTilt: 0.08,
-                    opacity: 1,
-                    decay: 0.0055,
-                    gravity: 0.16,
-                    drag: 0.99,
-                    type: Math.random() > 0.5 ? 'star' : 'ribbon'
-                });
-            }
-            if (!animationId) loop();
-        }, 450);
-    }
-
-    window.addEventListener('resize', resize);
-
-    return {
-        init,
-        fire
-    };
-})();
-
-function triggerCelebration(originX, originY) {
-    ConfettiEngine.fire(originX, originY);
-}
-
-function triggerConfetti() {
-    ConfettiEngine.fire(window.innerWidth / 2, window.innerHeight * 0.45);
-}
-
-window.triggerCelebration = triggerCelebration;
-window.triggerConfetti = triggerConfetti;
 </script>
 
 

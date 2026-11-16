@@ -50,40 +50,6 @@
             if (audioEl) audioEl.src = cfg.audio.src;
         }
 
-        // 3. Cover Overlay & Cards
-        if (cfg.hero && cfg.hero.coverPhoto) {
-            // Desktop blurred backdrop
-            const backdropImg = document.querySelector('#cover-overlay img[alt="Atmospheric Backdrop"]');
-            if (backdropImg) backdropImg.src = cfg.hero.coverPhoto;
-
-            // Centerpiece card portrait photo
-            const cardImg = document.querySelector('#cover-card img[data-nimg="fill"]');
-            if (cardImg) {
-                cardImg.src = cfg.hero.coverPhoto;
-                if (cfg.couple && cfg.couple.combinedNames) {
-                    cardImg.alt = cfg.couple.combinedNames;
-                }
-            }
-        }
-
-        // Cover Invocations
-        if (cfg.invocations) {
-            setText('#cover-invocation-symbol', cfg.invocations.symbol);
-            setText('#cover-invocation-heading', cfg.invocations.ganeshaHeading);
-            setText('#cover-invocation-subtitle', cfg.invocations.ganeshaSubtitle);
-            setText('#cover-tagline', cfg.invocations.tagline);
-        }
-
-        // Cover Names & Open Button
-        if (cfg.couple && cfg.couple.bride) {
-            setText('#cover-bride-name', cfg.couple.bride.name);
-        }
-        if (cfg.couple && cfg.couple.groom) {
-            setText('#cover-groom-name', cfg.couple.groom.name);
-        }
-        if (cfg.hero && cfg.hero.openButtonText) {
-            setText('#open-invite-btn-text', cfg.hero.openButtonText);
-        }
 
         // 4. Hero Section Video & Titles
         if (cfg.hero) {
@@ -113,18 +79,6 @@
             setText('#countdown-subtitle', cfg.weddingDate.countdownSubtitle);
         }
 
-        // 7. Scratch Card (Save Our Date)
-        if (cfg.scratchCard) {
-            setText('#scratch-badge', cfg.scratchCard.badge);
-            setText('#scratch-venue', cfg.scratchCard.venueSummary);
-            setText('#scratch-blessing', cfg.scratchCard.blessing);
-        }
-        if (cfg.couple && cfg.couple.combinedNames) {
-            setText('#scratch-names', cfg.couple.combinedNames);
-        }
-        if (cfg.weddingDate && cfg.weddingDate.displayDate) {
-            setText('#scratch-date', cfg.weddingDate.displayDate);
-        }
 
         // 8. Our Story Section
         if (cfg.story) {
